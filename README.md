@@ -5,6 +5,8 @@ I've created this to expand on the initial SmartSyncExplorer native sample provi
 
 These coding samples use a modified version of the original SObject* classes provided by Salesforce but upgraded to Swift 2.2 using the latest SDK at this time (May 2016) 4.1.2.
 
+The main reason behind this upgrade and modification was formula field you can retrieve them but syncing back causes exceptions because they are ready only, the isWriteable flag allows you to specify in the framework which fields you want written back to the force.com platform.
+
 ## Modifications
 - ive added a isWriteable bool to the SObjectDataFieldSpec  
 - SObjectDataManager updateRemoteData has a for loop to only pick the writable fields that you want to be updated in Salesforce
