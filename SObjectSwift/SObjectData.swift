@@ -38,9 +38,15 @@ class SObjectData: NSObject {
 		return self.nonNullFieldValue(fieldName)
 	}
 	
-	func nonNullFieldValue(fieldName: String) -> AnyObject? {
-		return self.soupDict.nonNullObjectForKey(fieldName)
-	}
+    func nonNullFieldValue(fieldName: String) -> AnyObject? {
+        // checking for null as causing app crash
+        let strRetVal = self.soupDict.nonNullObjectForKey(fieldName)
+        if strRetVal == nil {
+            return ""
+        }else{
+            return strRetVal
+        }
+    }
 	
 	func desc() -> String {
 		return String(format: "<%@:%p> %@", self, self, self.soupDict)
